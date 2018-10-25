@@ -13,7 +13,7 @@ class CreateShopCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('shop__categories', function (Blueprint $table) {
+        Schema::create('shopcategories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('img');

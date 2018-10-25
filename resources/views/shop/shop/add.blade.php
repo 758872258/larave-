@@ -4,117 +4,106 @@
 
 @section("content")
 
-    <form class="form-horizontal" method="post">
+    <form class="form-horizontal" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="form-group">
-            <label class="col-sm-2 control-label">店铺分类id</label>
+            <label class="col-sm-2 control-label">店铺分类</label>
             <div class="col-sm-10">
-                <select>
-@foreach($shops as $shop)
-                    <option value="{{$shop->id}}"> {{}}</option>
+                <select name="shop_category_id" >
+@foreach($ShopCategories as $ShopCategorie)
+                    <option value="{{$ShopCategorie->id}}"> {{$ShopCategorie->name}}</option>
     @endforeach
-                </select>>
-                <input type="text" class="form-control"  name="shop_category_id" value="{{old("shop_category_id")}}">
+                </select>
+
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">名称</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="shop_name" value="{{old("shop_name")}}">
+                <input type="text" class="form-control"  name="shop_name" >
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">图片</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="shop_img" value="{{old("shop_img")}}">
+                <input type="file" class="form-control"  name="shop_img" >
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">评分</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="shop_rating" value="{{old("shop_rating")}}">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">是否品牌是</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control"  name="brand" value="{{old("brand")}}">
+                <input type="text" class="form-control"  name="shop_rating" >
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label">是否准时送达</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control"  name="on_time" value="{{old("on_time")}}">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">是否蜂鸟配送</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control"  name="fengniao" value="{{old("fengniao")}}">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">是否表标记</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control"  name="bao" value="{{old("bao")}}">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">是否票标记</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control"  name="piao" value="{{old("piao")}}">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">是否准标记</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control"  name="zhun" value="{{old("zhun")}}">
-            </div>
-        </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">起送金额</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="start_send" value="{{old("start_send")}}">
+                <input type="text" class="form-control"  name="start_send" >
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">配送费</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="send_cost" value="{{old("send_cost")}}">
+                <input type="text" class="form-control"  name="send_cost" >
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">店公告</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="notice" value="{{old("notice")}}">
+
+                <textarea rows="5" class="form-control" name="notice"></textarea>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">优惠信息</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="discount" value="{{old("discount")}}">
+                <textarea rows="5" class="form-control" name="discount">
+
+                </textarea>
+
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">状态-1/1/0</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="status" value="{{old("status")}}">
+                <input type="radio"   name="status"  checked value="1">通过
+                <input type="radio"  name="status"  value="0">待审核
+                <input type="radio"   name="status"  value="-1">禁用
             </div>
         </div>
 
+        {{--<div class="form-group">--}}
+            {{--<label class="col-sm-2 control-label">所属商家</label>--}}
+            {{--<div class="col-sm-10">--}}
+                {{--<input type="text" class="form-control"  name="user_id" >--}}
+
+            {{--</div>--}}
+        {{--</div>--}}
+
         <div class="form-group">
-            <label class="col-sm-2 control-label">所属商家</label>
+            <label class="col-sm-2 control-label"></label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="shop_id" value="{{old("shop_id")}}">
+                <input type="checkbox" name="brand" value="1">
+                <label >品牌</label>
+                <input type="checkbox" name="on_time" value="1">
+                <label >准时送达</label>
+                <input type="checkbox" name="fengniao" value="1">
+                <label >蜂鸟配送</label>
+                <input type="checkbox" name="bao" value="1">
+                <label >保标记</label>
+                <input type="checkbox" name="piao" value="1">
+                <label >票标记</label>
+                <input type="checkbox" name="zhun" value="1">
+                <label >准标记</label>
             </div>
         </div>
+
+
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

@@ -15,11 +15,11 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">添加商品 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">添加商品</a></li>
+                <li><a href="#">商家信息</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">添加商品 <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商家分类 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
+                        <li><a href="{{route("shop.shopcategorie.add")}}">添加分类</a></li>
                         <li><a href="#">Another action</a></li>
                         <li><a href="#">Something else here</a></li>
                         <li role="separator" class="divider"></li>
@@ -37,8 +37,10 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{route("shop.user.login")}}">商家登录</a></li>
                         <li><a href="{{route("shop.user.register")}}">没有账号？注册</a></li>
-
+                        <li><a href="#">退出</a></li>
                         <li role="separator" class="divider"></li>
+                        <li><a href="{{route("admin.admin.login")}}">管理员登录</a></li>
+                        <li><a href="{{route("admin.admin.register")}}">管理员注册</a></li>
                         <li><a href="#">退出</a></li>
                     </ul>
                 </li>

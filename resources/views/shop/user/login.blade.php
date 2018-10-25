@@ -1,6 +1,6 @@
 @extends("layouts.main")
 
-@section("title","商户注册")
+@section("title","商户登陆")
 
 @section("content")
 

@@ -5,7 +5,7 @@
 @section("content")
 
 
-    {{--<a href="{{route('shop')}}" class="btn btn-primary">注册</a>--}}
+    <a href="{{route('shop.shop.add')}}" class="btn btn-primary">添加</a>
     <table class="table">
 
         <tr>
@@ -34,7 +34,7 @@
                 <td>{{$shop->id}}</td>
                 <td>{{$shop->shop_category_id}}</td>
                 <td>{{$shop->shop_name}}</td>
-                <td>{{$shop->shop_img}}</td>
+                <td><img src="/images/{{$shop->shop_img}}" width="100px"></td>
                 <td>{{$shop->shop_rating}}</td>
                 <td>{{$shop->brand}}</td>
                 <td>{{$shop->on_time}}</td>
@@ -52,7 +52,7 @@
 
                 <td>
                     {{--<a href="{{route('shops.detail',$shop->id)}}" class="btn btn-primary">查看</a>--}}
-                    {{--<a href="{{route('shop.shop.edit',$shop->id)}}" class="btn btn-success">编辑</a>--}}
+                    <a href="{{route('shop.shop.edit',$shop->id)}}" class="btn btn-success">编辑</a>
                     {{--<a href="{{route('shop.shop.del',$shop->id)}}" class="btn btn-danger">删除</a>--}}
                     {{--<a href="{{route('shop.register')}}" class="btn btn-primary">注册</a>--}}
 

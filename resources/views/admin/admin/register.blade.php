@@ -1,28 +1,32 @@
 @extends("layouts.main")
 
-@section("title","商户注册")
+@section("title","管理员登陆")
 
 @section("content")
 
-    <form class="form-horizontal"  method="post">
+    <form class="form-horizontal"  method="post" enctype="multipart/form-data" >
         {{csrf_field()}}
         <div class="form-group">
-            <label class="col-sm-2 control-label">姓名</label>
+            <label class="col-sm-2 control-label">管理员名称</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="name" >
+
+                <input type="text" class="form-control"  name="name"  >
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">邮箱</label>
+            <label class="col-sm-2 control-label">管理员邮箱</label>
             <div class="col-sm-10">
                 <input type="email" class="form-control"  name="email" >
+
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">密码</label>
+            <label class="col-sm-2 control-label">管理员密码</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control"  name="password">
+                <input type="password"   name="password" class="form-control" >
             </div>
+
+
         </div>
 
         <div class="form-group">

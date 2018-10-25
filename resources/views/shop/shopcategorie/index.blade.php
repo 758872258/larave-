@@ -5,7 +5,7 @@
 @section("content")
 
 
-    <a href="{{route('shop.shop_categories.add')}}" class="btn btn-primary">添加</a>
+    {{--<a href="{{route('shop.shopcategorie.add')}}" class="btn btn-primary">添加</a>--}}
     <table class="table">
 
         <tr>
@@ -15,20 +15,20 @@
             <th>状态：1显示，0隐藏</th>
             <th>操作</th>
         </tr>
-        @foreach($shop_categories as $$shop_categorie)
+        @foreach($shopcategories as $shopcategorie)
             <tr>
-                <td>{{$shop_categorie->id}}</td>
-                <td>{{$shop_categorie->name}}</td>
-                <td>{{$shop_categorie->img}}</td>
-                <td>{{$shop_categorie->status}}</td>
+                <td>{{$shopcategorie->id}}</td>
+                <td>{{$shopcategorie->name}}</td>
+                <td><img src="/images/{{$shopcategorie->img}}" width="100px"></td>
+                <td>{{$shopcategorie->status}}</td>
 
 
 
 
                 <td>
                     {{--<a href="{{route('shops.detail',$shop->id)}}" class="btn btn-primary">查看</a>--}}
-                    {{--<a href="{{route('shop.shop.edit',$shop->id)}}" class="btn btn-success">编辑</a>--}}
-                    {{--<a href="{{route('shop.shop.del',$shop->id)}}" class="btn btn-danger">删除</a>--}}
+                    <a href="{{route('shop.shopcategorie.edit',$shopcategorie->id)}}" class="btn btn-success">编辑</a>
+                    <a href="{{route('shop.shopcategorie.del',$shopcategorie->id)}}" class="btn btn-danger">删除</a>
                     {{--<a href="{{route('shop.register')}}" class="btn btn-primary">注册</a>--}}
 
                 </td>

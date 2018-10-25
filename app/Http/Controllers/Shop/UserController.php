@@ -6,9 +6,11 @@ namespace App\Http\Controllers\Shop;
 
 use App\Http\Controllers\Shop\BaseController;
 use App\Models\User;
+use function Couchbase\defaultDecoder;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use function Sodium\compare;
 
 class UserController extends BaseController
@@ -30,6 +32,7 @@ class UserController extends BaseController
        if ($request->isMethod("post")){
 //           存储数据
          $data=$request->post();
+           $data['password'] = bcrypt($data['password']);
 //         dd($data);
 //         执行方法
          if (User::create($data)){
@@ -43,24 +46,29 @@ class UserController extends BaseController
     }
 
 //商户登录
-    public  function login(Request $request){
-//        判断提交方式
-        if ($request->isMethod("post")){
-//            $data=$request->post();
-//            if(Auth::guard("user")->attempt($data))
-//            {
-//                跳转视图
-                return redirect()->route("shop.user.cat");
-//            }
 
-
+    public function login(Request $request){
+        // 判断是否 post 提交
+        if ($request -> isMethod("post")){
+            // 验证
+            $data = $this -> validate($request,[
+                'name' => "required",
+                'password' => "required",
+            ]);
+            // 验证账号密码
+            if (Auth::attempt($data)){
+                return redirect()->route("shop.user.cat")->with("success","登录成功");
+            }else{
+                return redirect()->back()->withInput()->with("danger","账号或密码错误");
+            }
         }
-        //显示自己的页面
         return view("shop.user.login");
     }
 
 
-public  function  cat(){
+
+
+    public  function  cat(){
     return view("shop.user.cat");
 }
 
