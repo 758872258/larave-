@@ -27,8 +27,8 @@
 
                 <td>
                     {{--<a href="{{route('shops.detail',$shop->id)}}" class="btn btn-primary">查看</a>--}}
-                    <a href="{{route('shop.shopcategorie.edit',$shopcategorie->id)}}" class="btn btn-success">编辑</a>
-                    <a href="{{route('shop.shopcategorie.del',$shopcategorie->id)}}" class="btn btn-danger">删除</a>
+                    <a href="{{route('admin.shopcategorie.edit',$shopcategorie->id)}}" class="btn btn-success">编辑</a>
+                    <a href="{{route('admin.shopcategorie.del',$shopcategorie->id)}}" class="btn btn-danger">删除</a>
                     {{--<a href="{{route('shop.register')}}" class="btn btn-primary">注册</a>--}}
 
                 </td>

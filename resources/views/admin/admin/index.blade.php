@@ -6,6 +6,9 @@
 
 
     <a href="{{route('admin.admin.add')}}" class="btn btn-primary">添加</a>
+    <a href="{{route('admin.user.index')}}" class="btn btn-primary">商家管理</a>
+    <a href="{{route('admin.shop.index')}}" class="btn btn-primary">商铺管理</a>
+    <a href="{{route('admin.shopcategorie.index')}}" class="btn btn-primary">商铺分类管理</a>
     <table class="table">
 
         <tr>

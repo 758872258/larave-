@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Shop;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\ShopCategorie;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ public  function index(){
 //    读取所有数据
     $shopcategories=ShopCategories::all();
 //跳转视图
-    return view("shop.shopcategorie.index",compact("shopcategories"));
+    return view("admin.shopcategorie.index",compact("shopcategories"));
 }
 //添加一个商家分类的方法
 public  function add(Request $request){
@@ -27,7 +27,7 @@ public  function add(Request $request){
 //        拿到数据执行方法
         if (ShopCategories::create($data)){
 //            跳转视图
-            return redirect()->route("shop.shopcategorie.index");
+            return redirect()->route("admin.shopcategorie.index");
         }
     }
 //返回自己的视图
@@ -48,10 +48,10 @@ public  function add(Request $request){
 //        拿到数据执行方法
             if ($shopcategorie->update($data)){
 //            跳转视图
-                return redirect()->route("shop.shopcategorie.index");
+                return redirect()->route("admin.shopcategorie.index");
             }
         }
-        return view("shop.shopcategorie.edit",compact("shopcategorie"));
+        return view("admin.shopcategorie.edit",compact("shopcategorie"));
 
 }
 public function del($id){
@@ -62,7 +62,7 @@ public function del($id){
     if ($shopcategorie->delete()){
 
 //        返回视图
-        return redirect()->route("shop.shopcategorie.index");
+        return redirect()->route("admin.shopcategorie.index");
     }
 
 

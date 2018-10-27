@@ -57,7 +57,7 @@ class UserController extends BaseController
             ]);
             // 验证账号密码
             if (Auth::attempt($data)){
-                return redirect()->route("shop.user.cat")->with("success","登录成功");
+                return redirect()->route("shop.user.home")->with("success","登录成功");
             }else{
                 return redirect()->back()->withInput()->with("danger","账号或密码错误");
             }
@@ -65,7 +65,10 @@ class UserController extends BaseController
         return view("shop.user.login");
     }
 
+public  function home(){
 
+        return view("shop.user.home");
+}
 
 
     public  function  cat(){

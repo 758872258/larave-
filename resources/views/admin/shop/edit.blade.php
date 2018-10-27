@@ -10,29 +10,29 @@
             <label class="col-sm-2 control-label">店铺分类</label>
             <div class="col-sm-10">
                 <select name="shop_category_id" >
-@foreach($ShopCategories as $ShopCategorie)
-                    <option value="{{$ShopCategorie->id}}"> {{$ShopCategorie->name}}</option>
-    @endforeach
+                    @foreach($ShopCategories as $ShopCategorie)
+                        <option value="{{$ShopCategorie->id}}"> {{$ShopCategorie->name}}</option>
+                    @endforeach
                 </select>
 
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">名称</label>
+            <label class="col-sm-2 control-label">商铺名称</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control"  name="shop_name" >
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">图片</label>
+            <label class="col-sm-2 control-label">商铺图片</label>
             <div class="col-sm-10">
                 <input type="file" class="form-control"  name="shop_img" >
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">评分</label>
+            <label class="col-sm-2 control-label">商铺评分</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control"  name="shop_rating" >
             </div>
@@ -67,15 +67,17 @@
                 </textarea>
 
             </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">状态-1/1/0</label>
+            <div class="col-sm-10">
+                <input type="radio"   name="status"  checked value="1">通过
+                <input type="radio"  name="status"  value="0">待审核
+                <input type="radio"   name="status"  value="-1">禁用
+            </div>
+        </div>
 
 
-        {{--<div class="form-group">--}}
-            {{--<label class="col-sm-2 control-label">所属商家</label>--}}
-            {{--<div class="col-sm-10">--}}
-                {{--<input type="text" class="form-control"  name="user_id" >--}}
-
-            {{--</div>--}}
-        {{--</div>--}}
 
         <div class="form-group">
             <label class="col-sm-2 control-label"></label>
@@ -99,7 +101,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">添加</button>
+                <button type="submit" class="btn btn-default">修改</button>
             </div>
         </div>
     </form>

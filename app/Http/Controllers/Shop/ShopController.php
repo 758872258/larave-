@@ -34,7 +34,7 @@ public  function add(Request $request){
 //        拿到数据执行方法
         if (Shop::create($data)){
 //            跳转到首页
-return redirect()->route("shop.shop.index");
+return redirect()->route("shop.user.login")->with("success","申请成功，等待管理员审核");
         }
 
 
