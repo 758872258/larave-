@@ -15,12 +15,12 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">添加商品 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">商家信息</a></li>
+                <li><a href="{{route("shop.menu.add")}}">添加菜品</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">选择分类 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{route("shop.menucategory.add")}}">菜品分类</a></li>
-                        <li><a href="{{route("shop.menu.add")}}">添加菜品</a></li>
+                        <li><a href="{{route("admin.shopcategorie.add")}}">商家分类</a></li>
 
                         <li role="separator" class="divider"></li>
 

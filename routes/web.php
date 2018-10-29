@@ -29,18 +29,22 @@ Route::domain("shop.ele.com")->namespace("Shop")->group(function (){
 //商家信息表
     Route::get("shop/index","ShopController@index")->name("shop.shop.index");
     Route::any("shop/add","ShopController@add")->name("shop.shop.add");
+
     Route::any("shop/edit","ShopController@edit")->name("shop.shop.edit");
     Route::get("shop/del","ShopController@del")->name("shop.shop.del");
 //    菜品分类
     Route::get("menucategory/index","MenuCategoryController@index")->name("shop.menucategory.index");
     Route::any("menucategory/add","MenuCategoryController@add")->name("shop.menucategory.add");
+
     Route::any("menucategory/edit{id}","MenuCategoryController@edit")->name("shop.menucategory.edit");
     Route::get("menucategory/del{id}","MenuCategoryController@del")->name("shop.menucategory.del");
     // 菜品
     Route::get("menu/index","MenuController@index")->name("shop.menu.index");
     Route::any("menu/add","MenuController@add")->name("shop.menu.add");
+    Route::any("menu/upload","MenuController@upload")->name("shop.menu.upload");
     Route::any("menu/edit{id}","MenuController@edit")->name("shop.menu.edit");
     Route::get("menu/del{id}","MenuController@del")->name("shop.menu.del");
+
 });
 
 //平台路由
@@ -55,6 +59,7 @@ Route::domain("admin.ele.com")->namespace("Admin")->group(function (){
     //商家分类
     Route::get("shopcategorie/index","ShopCategorieController@index")->name("admin.shopcategorie.index");
     Route::any("shopcategorie/add","ShopCategorieController@add")->name("admin.shopcategorie.add");
+    Route::any("shopcategorie/upload","ShopCategorieController@upload")->name("admin.shopcategorie.upload");
     Route::any("shopcategorie/edit{id}","ShopCategorieController@edit")->name("admin.shopcategorie.edit");
     Route::any("shopcategorie/del{id}","ShopCategorieController@del")->name("admin.shopcategorie.del");
 
@@ -65,7 +70,15 @@ Route::domain("admin.ele.com")->namespace("Admin")->group(function (){
 //管理商家商铺
     Route::get("shop/index","ShopController@index")->name("admin.shop.index");
     Route::any("shop/edit{id}","ShopController@edit")->name("admin.shop.edit");
+    Route::any("shop/upload","ShopController@upload")->name("admin.shop.upload");
     Route::get("shop/del{id}","ShopController@del")->name("admin.shop.del");
     Route::get("shop/examine{id}","ShopController@examine")->name("admin.shop.examine");
+
+    //管理员管理商家账号路由
+    Route::get("activity/index","ActivityController@index")->name("admin.activity.index");
+    Route::any("activity/add","ActivityController@add")->name("admin.activity.add");
+    Route::any("activity/edit{id}","ActivityController@edit")->name("admin.activity.edit");
+    Route::get("activity/del{id}","ActivityController@del")->name("admin.activity.del");
+
 
 });

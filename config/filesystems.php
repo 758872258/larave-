@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'public'),
+    'default' => env('FILESYSTEM_DRIVER', 'oss'),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,8 +53,13 @@ return [
             'root' => public_path('images'),
         ],
 
-
-
+        'oss' => [
+            'driver'        => 'oss',
+            'access_id'     => 'LTAIfNUbDdlhsNv9',//账号
+            'access_key'    => 'NCsfvavDFh3sKsYL1s08EjguxrEPJz',//密钥
+            'bucket'        => 'ybcyx',//空间名称
+            'endpoint'      => 'oss-cn-shenzhen.aliyuncs.com', // OSS 外网节点或自定义外部域名
+                ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

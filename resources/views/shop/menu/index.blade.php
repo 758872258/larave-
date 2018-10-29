@@ -27,7 +27,8 @@
                 <td>{{$menu->goods_price}}</td>
                 <td>{{$menu->description}}</td>
                 <td>{{$menu->tips}}</td>
-                <td><img src="/images/{{$menu->goods_img}}" width="100px"></td>
+                <td><img src="{{$menu->goods_img}}?x-oss-process=image/resize,m_fill,w_80,h_80">
+                </td>
                 <td>{{$menu->status}}</td>
                 <td>
                     {{--<a href="{{route('$menus.detail',$$menu->id)}}" class="btn btn-primary">查看</a>--}}

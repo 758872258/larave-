@@ -20,7 +20,7 @@
             <tr>
                 <td>{{$shop->id}}</td>
                 <td>{{$shop->shop_name}}</td>
-                <td><img src="/images/{{$shop->shop_img}}" width="100px"></td>
+                <td><img src="{{$shop->shop_img}}?x-oss-process=image/resize,m_fill,w_80,h_80"></td>
                 <td>{{$shop->notice}}</td>
                 <td>{{$shop->status}}</td>
 

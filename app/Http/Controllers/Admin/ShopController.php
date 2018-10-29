@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ShopController extends Controller
 {
@@ -25,6 +26,9 @@ public  function edit(Request $request,$id){
         if ($request->isMethod("post")){
 //            接收数据
             $data=$request->post();
+//            Storage::delete($shops->shop_img);
+//            $data['shop_img']=$request->file("shop_img")->store("images");
+            Storage::delete($shops->shop_img);
 //            拿到数据执行修改方法
             if ($shops->update($data)){
 
@@ -54,12 +58,34 @@ public  function del($id){
 //        读取一条数据
     $shop=Shop::find($id);
 //    显示视图
+    Storage::delete($shop->shop_img);
     if ($shop->delete()){
 //        显示视图
         return view("admin.shop.index");
 
     }
-
 }
+    public function upload(Request $request)
+    {
+        //处理上传
+        $file=$request->file("file");
+
+
+        if ($file){
+            //上传
+
+            $url=$file->store("menu_cate");
+
+            /// var_dump($url);
+            //得到真实地址  加 http的址
+            $url=Storage::url($url);
+
+            $data['url']=$url;
+
+            return $data;
+            ///var_dump($url);
+        }
+
+    }
 }
 

@@ -8,6 +8,7 @@ use App\Models\ShopCategories;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class MenuCategoryController extends BaseController
 {
@@ -64,4 +65,7 @@ public  function del($id){
             return redirect()->route("shop.menucategory.index")->with("success","删除成功");
         }
 }
+
+
+
 }
