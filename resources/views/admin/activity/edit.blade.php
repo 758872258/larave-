@@ -39,7 +39,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">活动结束时间</label>
             <div class="col-sm-10">
-                <input type="datetime-local" class="form-control"  name="end_time"  value="{{$Activity->end_time}}">
+                <input type="datetime-local" class="form-control"  name="end_time"   value="{{$Activity->end_time}}">
             </div>
         </div>
 

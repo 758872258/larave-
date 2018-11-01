@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 
@@ -35,7 +35,6 @@ Route::domain("shop.ele.com")->namespace("Shop")->group(function (){
 //    菜品分类
     Route::get("menucategory/index","MenuCategoryController@index")->name("shop.menucategory.index");
     Route::any("menucategory/add","MenuCategoryController@add")->name("shop.menucategory.add");
-
     Route::any("menucategory/edit{id}","MenuCategoryController@edit")->name("shop.menucategory.edit");
     Route::get("menucategory/del{id}","MenuCategoryController@del")->name("shop.menucategory.del");
     // 菜品

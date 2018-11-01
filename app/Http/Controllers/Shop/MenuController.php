@@ -23,10 +23,8 @@ class MenuController extends BaseController
         if ($request->isMethod("post")){
 //            储存数据
             $data=$request->post();
-//            $data['goods_img']=$request->file("goods_img")->store("images");
 
-//            $data['shop_id']=Auth::user()->shop->id;
-//            dd( $data['shop_id']);
+
 //            拿到数据执行添加方法
             if (Menu::create($data)){
 //                跳转视图

@@ -10,7 +10,7 @@ class User extends Authenticatable
     public  $fillable=["name","email","password"];
     public function shop()
     {
-        return $this->hasOne(Shops::class,"user_id");
+        return $this->hasOne(Shop::class,"user_id");
     }
 
 }

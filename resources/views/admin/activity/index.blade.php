@@ -4,9 +4,7 @@
 
 @section("content")
 
-
     <a href="{{route('admin.activity.add')}}" class="btn btn-primary">添加</a>
-
     <table class="table">
 
         <tr>

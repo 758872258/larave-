@@ -12,4 +12,9 @@ class MenuCategory extends Model
 
 
     }
+    public  function goods(){
+        return $this->hasMany(Menu::class,"category_id");
+
+
+    }
 }
