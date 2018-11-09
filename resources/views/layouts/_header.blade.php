@@ -8,27 +8,24 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">商家商铺后台</a>
+            <a class="navbar-brand" href="#">后台管理系统</a>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">添加商品 <span class="sr-only">(current)</span></a></li>
-                <li><a href="{{route("shop.menu.add")}}">添加菜品</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">选择分类 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{route("shop.menucategory.add")}}">菜品分类</a></li>
-                        <li><a href="{{route("admin.shopcategorie.add")}}">商家分类</a></li>
+                          <ul class="nav navbar-nav">
+                                  @foreach(\App\Models\Nav::where("pid",0)->get() as $k1=>$v1)
+                                         <li class="dropdown">
+                                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                                       22                             aria-expanded="false">{{$v1->name}} <span class="caret"></span></a>
+                                             <ul class="dropdown-menu">
 
-                        <li role="separator" class="divider"></li>
 
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">待用</a></li>
-                    </ul>
-                </li>
-            </ul>
+                                                          @foreach(\App\Models\Nav::where("pid",$v1->id)->get() as $k2=>$v2)
+                                                              <li><a href="{{route($v2->url)}}">{{$v2->name}}</a></li>
+                                                               @endforeach
+                                                      </ul>
+                                              </li>
+                                      @endforeach
+                              </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">首页</a></li>

@@ -25,6 +25,14 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="col-sm-2 control-label">权限名字</label>
+            <div class="col-sm-10">
+                @foreach($roles as $role)
+                <input type="checkbox" name="role[]" value="{{$role->id}}">{{$role->name}}
+                    @endforeach
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">添加</button>
             </div>

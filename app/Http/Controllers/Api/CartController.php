@@ -47,7 +47,7 @@ class CartController extends Controller
         {
             $good = Menu::where('id', $v->goods_id)->first(['id as goods_id','goods_name','goods_img', 'goods_price']);
             //图片拼接
-            $good->goods_img=env("ALIYUN_OSS_URL").$good->goods_img;
+            $good->goods_img=$good->goods_img;
             $good->amount = $v->goods_count;
             //算总价
             $totalCost += $v->goods_count * $good->goods_price;

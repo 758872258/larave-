@@ -47,7 +47,24 @@ public  function edit(Request $request,$id){
 //        dd($id);
         //先通过id找到这条数据
 //        $shop=ShopCategory::find($id);
+        $shop=Shop::find($id);
+        //dd($shop->user->email);
+
         DB::table("shops")->where("id","=","$id")->update(["status"=>1]);
+
+//dd($shop);
+        //$content = 'test';//邮件内容
+        $shopName=$shop->shop_name;
+        $to ="758872258@qq.com";//收件人
+        $subject = $shopName.' 审核通知';//邮件标题
+        \Illuminate\Support\Facades\Mail::send(
+            'emails.shop',//视图
+            compact("shopName"),//传递给视图的参数
+            function ($message) use($to, $subject) {
+                $message->to($to)->subject($subject);
+            }
+        );
+
 //        跳转视图
         return redirect()->route("admin.shop.index");
 

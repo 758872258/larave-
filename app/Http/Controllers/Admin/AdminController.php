@@ -7,6 +7,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class AdminController extends BaseController
 {
@@ -39,6 +40,7 @@ class AdminController extends BaseController
     public function login(Request $request){
         // 判断是否 post 提交
         if ($request -> isMethod("post")){
+
             // 验证
             $data = $this -> validate($request,[
                 'name' => "required",
@@ -53,20 +55,26 @@ class AdminController extends BaseController
         }
         return view("admin.admin.login");
     }
-
 //    管理员添加方法
 public  function  add(Request $request){
 //        判定提交方式
         if ($request->isMethod("post")){
             $data=$request->post();
+            $data['password'] = bcrypt($data['password']);
 
+            $admin=Admin::create($data);
+
+            //给用户添加角色 同步角色
+            $admin->syncRoles($request->post('role'));
+//            dd($request->post('role'));
 //            拿到数据执行添加方法
-            if (Admin::create($data)){
                 //            跳转视图
-                return redirect()->route("admin.admin.index");
-            }
+                return redirect()->route("admin.admin.index")->with('success','创建'.$admin->name."成功");
         }
-        return view("admin.admin.add");
+    //得到所有角色
+    $roles=Role::all();
+    return view('admin.admin.add',compact("roles"));
+
 }
 //管理员修改方法
 public  function edit(Request $request,$id){

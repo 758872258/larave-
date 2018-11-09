@@ -42,3 +42,9 @@ Route::any("address/look","Api\AddressController@look");
 Route::any("cart/add","Api\CartController@add");
 //显示订单
 Route::any("cart/index","Api\CartController@index");
+//订单
+Route::any("order/add","Api\OrderController@add");
+Route::any("order/orderList","Api\OrderController@orderList");
+Route::any("order/index","Api\OrderController@index");
+Route::any("order/pay","Api\OrderController@pay");
+Route::get("order/detail","Api\OrderController@detail");

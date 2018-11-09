@@ -14,7 +14,7 @@
             <label class="col-sm-2 control-label"></label>
             <div class="col-sm-2">
                 <a href="{{route("shop.user.login")}}"><input type="button" class="btn btn-success form-control"  name="name" value="也有商铺->登陆" ></a>
-
+            </div>
 
         </div>
 

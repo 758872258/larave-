@@ -31,7 +31,7 @@ return $shops;
         $id = request()->get('id');
         //$id = 1;
         $shop = Shop::find($id);
-        $shop->shop_img=env("ALIYUN_OSS_URL").$shop->shop_img;
+        //$shop->shop_img=env("ALIYUN_OSS_URL").$shop->shop_img;
         $shop->service_code = 4.6;
         $shop->evaluate = [
             [
